@@ -1,0 +1,35 @@
+.card{
+    //margin-top: 10px;
+    border: none;
+    width: 500px;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(10%,50%);
+    background: hsla(205, 46%, 30%, 1);
+    background: linear-gradient(90deg, hsla(205, 46%, 30%, 1) 0%, hsla(260, 29%, 36%, 1) 100%);
+    border-radius: 20px;
+}
+.card h1, h6, a{
+    color: #fff;
+    font-family: "Roboto";
+}
+label{
+    color: #fff;
+    margin-top: 15px;
+    font-family: "Roboto";
+}
+input{
+    border-radius: 10px;
+}
+button{
+    margin-top: 15px;
+    width: 100px;
+    background-image: linear-gradient(90deg, #020024 0%, #090979 35%, #00d4ff 100%);
+    font-weight: bold;
+    border-radius: 15px;
+}
+input.ng-invalid.ng-touched{
+    border: 1px solid red;
+}
