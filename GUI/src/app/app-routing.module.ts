@@ -4,13 +4,16 @@ import { AdminHeaderComponent } from './admin/admin-header/admin-header.componen
 import { ManageUsersComponent } from './admin/manage-users/manage-users.component';
 import { ForgotPasswordComponent } from './common-components/forgot-password/forgot-password.component';
 import { LoginComponent } from './common-components/login/login.component';
+import { DashboardComponent } from './common-components/dashboard/dashboard.component';
+
 
 const routes: Routes = [
-  {path: "", redirectTo: "login",pathMatch: "full"},
-  {path: "login", component: LoginComponent},
-  {path: "forgot-password", component: ForgotPasswordComponent},
-  {path: "admin-header", component: AdminHeaderComponent},
-  {path: "manage-users", component: ManageUsersComponent}
+  { path: "", redirectTo: "login", pathMatch: "full" },
+  { path: "login", component: LoginComponent },
+  { path: "forgot-password", component: ForgotPasswordComponent },
+  { path: "admin-header", component: AdminHeaderComponent },
+  { path: "manage-users", component: ManageUsersComponent },
+  { path: "dashboard", component: DashboardComponent }
 ];
 
 @NgModule({
