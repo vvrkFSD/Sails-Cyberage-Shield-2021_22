@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
 import { ManageUsersComponent } from './admin/manage-users/manage-users.component'
 import { AdminHeaderComponent } from './admin/admin-header/admin-header.component';
+import { DashboardComponent } from './common-components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AdminHeaderComponent } from './admin/admin-header/admin-header.componen
     LoginComponent,
     ForgotPasswordComponent,
     AdminHeaderComponent,
-    ManageUsersComponent
+    ManageUsersComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

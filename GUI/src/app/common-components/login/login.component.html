@@ -1,40 +1,35 @@
 <div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="card">
-                <div class="text-center">
-                    <h1>Login</h1>
-                    <h6>Please enter E-mail & Password !!</h6>
-                </div>
-                <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
-                    <div class="mb-3">
-                      <label for="exampleInputEmail1" class="form-label">Email address</label>
-                      <input 
-                      formControlName="email" placeholder="Ex@name.com" type="email" 
-                      class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
-                      <span 
-                        *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched"
-                        style="color: red;"
-                        class="help-block text-center">
-                        Please Enter a valid mail ID
-                      </span>
-                    </div>
-                    <div class="mb-3">
-                      <label for="exampleInputPassword1" class="form-label">Password</label>
-                      <input formControlName="password" placeholder="enter password" type="password" 
-                      class="form-control" id="exampleInputPassword1"/>
-                      <span 
-                        *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched"
-                        style="color: red;"
-                        class="help-block text-center">
-                        Please Enter correcct password
-                       </span>
-                    </div>
-                    <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Submit</button>
-                  </form>
-                  <a routerLink="/forgot-password">Forgot Password ?</a>
-                  
-            </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="text-center">
+          <h1>Login</h1>
+          <h6>Please enter E-mail & Password !!</h6>
         </div>
+        <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input formControlName="email" placeholder="Ex@name.com" type="email" class="form-control"
+              id="exampleInputEmail1" aria-describedby="emailHelp" />
+            <span *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" style="color: red;"
+              class="help-block text-center">
+              Please Enter Valid Email
+            </span>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input formControlName="password" placeholder="enter password" type="password" class="form-control"
+              id="exampleInputPassword1" />
+            <span *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" style="color: red;"
+              class="help-block text-center">
+              Please Enter correcct password
+            </span>
+          </div>
+          <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Submit</button>
+        </form>
+        <a routerLink="/forgot-password">Forgot Password ?</a>
+
+      </div>
     </div>
+  </div>
 </div>
