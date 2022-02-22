@@ -1,5 +1,5 @@
 package com.sailssoft.controller;
 
-public class DemoController {
+public class QuestionSetController {
 
 }
