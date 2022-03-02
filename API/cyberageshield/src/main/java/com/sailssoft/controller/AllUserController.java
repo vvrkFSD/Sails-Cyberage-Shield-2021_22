@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,14 +17,11 @@ import com.sailssoft.model.User;
 import com.sailssoft.service.UserService;
 
 @RestController
-@RequestMapping("/all")
+@RequestMapping("api/all")
 public class AllUserController {
-
-	@Autowired
-	private UserService userService; 
 	
 	@Autowired
-	private UserRepository userRepository;
+	private UserService userService;
 	
 	
 	@PostMapping("/users/login")
@@ -49,8 +47,17 @@ public class AllUserController {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
+	@PutMapping("users/profile")
+	public ResponseEntity<HttpStatus> updateProfile(@RequestBody User user) {
+    	return userService.updateProfile(user);
+    }
 	
 	
+	
+	@PutMapping("users/savepwd")
+	public ResponseEntity<HttpStatus> changePassword(@RequestBody User user) {
+    	return userService.changePassword(user);
+    }
 	
 	
 	

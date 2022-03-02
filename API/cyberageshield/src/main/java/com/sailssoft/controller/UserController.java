@@ -16,11 +16,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.sailssoft.dto.UserDTO;
 import com.sailssoft.model.User;
 import com.sailssoft.service.UserService;
 
 @RestController
-@RequestMapping("/admin")
+@RequestMapping("api/admin")
 
 public class UserController {
 	
@@ -30,7 +31,7 @@ public class UserController {
 	
 	@PostMapping("/users")
 	@PreAuthorize("hasAnyRole('ADMIN')")
-	public ResponseEntity<User> saveUser(@Validated @RequestBody User user) {
+	public ResponseEntity<UserDTO> saveUser(@Validated @RequestBody User user) {
 		return userService.saveUser(user);	
 	}
 	
@@ -58,7 +59,7 @@ public class UserController {
 	
 	@GetMapping("/users")
 	@PreAuthorize("hasAnyRole('ADMIN')")
-	public List<User> getAllUsers(){
+	public List<UserDTO> getAllUsers(){
 		return userService.getAllUsers();
 	}
 	
