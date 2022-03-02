@@ -2,8 +2,10 @@ package com.sailssoft.service;
 
 import java.util.List;
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+
 
 import com.sailssoft.dto.UserDTO;
 import com.sailssoft.model.User;
@@ -29,6 +31,15 @@ public interface UserService {
 	public ResponseEntity<HttpStatus> updateProfile(User user);
 
 	public ResponseEntity<HttpStatus> changePassword(User user);
+	
+	public void updateResetPasswordToken(String token, String email) throws UserNotFoundException;
+
+	public User getByResetPasswordToken(String token);
+
+	public void updatePassword(User user, String password);
+
+	
+	
 	
 	
 	

@@ -3,6 +3,7 @@ package com.sailssoft.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -62,6 +63,7 @@ public class UserController {
 	public List<UserDTO> getAllUsers(){
 		return userService.getAllUsers();
 	}
+	
 	
 	
 	
