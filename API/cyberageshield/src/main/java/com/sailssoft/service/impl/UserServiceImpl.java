@@ -2,7 +2,9 @@ package com.sailssoft.service.impl;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +12,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.sailssoft.dao.UserRepository;
+import com.sailssoft.dto.UserDTO;
 import com.sailssoft.model.User;
 import com.sailssoft.service.UserService;
 
@@ -40,19 +43,18 @@ public class UserServiceImpl implements UserService{
 
 	
 	@Override
-	public ResponseEntity<User> saveUser(User user) {
+	public ResponseEntity<UserDTO> saveUser(User user) {
 		String pwd=user.getPassword();
 		
 		String epwd=passwordEncoder.encode(pwd);
 		user.setPassword(epwd);
-		try {
-			User _user=userRepository
-	.save(new User(null, user.getUsername(),user.getPassword(),user.getRole(),user.getEmailId(),user.getGender(),user.getDob(), null));
-			return new ResponseEntity<>(_user,HttpStatus.CREATED);
-		}
-		catch(Exception e){
-			return new ResponseEntity<>(null,HttpStatus.INTERNAL_SERVER_ERROR);
-		}
+		
+		userRepository.save(user);
+		UserDTO userDTO=new UserDTO();
+		BeanUtils.copyProperties(user, userDTO);
+		return ResponseEntity.ok(userDTO);
+		
+		
 	}
 
 	@Override
@@ -94,15 +96,54 @@ public class UserServiceImpl implements UserService{
 		}
 	}
 
+
 	@Override
-	public List<User> getAllUsers() {
-		return userRepository.findAll();
+	public ResponseEntity<HttpStatus> updateProfile(User user) {
+		User _user = userRepository.findByEmailId(user.getEmailId());
+		if(user.getUsername()!=null) {
+			_user.setUsername(user.getUsername());
+		}
+		if(user.getDob()!=null) {
+			_user.setDob(user.getDob());
+		}
+		if(user.getGender()!=null) {
+			_user.setGender(user.getGender());
+		}
+		
+		userRepository.save(_user);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
-
-
-
 	
-	
+	@Override
+	public List<UserDTO> getAllUsers() {
+		return userRepository.findAll()
+				.stream().map(this::convertEntityToDto)
+				.collect(Collectors.toList());
+	}
+
+	private UserDTO convertEntityToDto(User user){
+		UserDTO userprofileDTO = new UserDTO();
+		userprofileDTO.setUserId(user.getUserId());
+		userprofileDTO.setUsername(user.getUsername());
+		userprofileDTO.setEmailId(user.getEmailId());
+		userprofileDTO.setGender(user.getGender());
+		userprofileDTO.setDob(user.getDob());
+        return userprofileDTO;
+    }
+
+
+	@Override
+	public ResponseEntity<HttpStatus> changePassword(User user) {
+		
+		User _user = userRepository.findByEmailId(user.getEmailId());
+		if(user.getUsername()!=null) {
+			_user.setPassword(user.getPassword());
+		}
+		userRepository.save(_user);
+		return new ResponseEntity<>(HttpStatus.OK);
+		
+	}
+
 	
 }

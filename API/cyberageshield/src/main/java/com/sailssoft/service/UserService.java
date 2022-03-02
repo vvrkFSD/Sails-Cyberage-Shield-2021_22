@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+import com.sailssoft.dto.UserDTO;
 import com.sailssoft.model.User;
 
 
@@ -15,7 +16,7 @@ public interface UserService {
 
 	public User findByEmail(String email);
 
-	public ResponseEntity<User> saveUser(User user);
+	public ResponseEntity<UserDTO> saveUser(User user);
 
 	public ResponseEntity<User> updateUser(Long userId, User user);
 
@@ -23,8 +24,11 @@ public interface UserService {
 
 	public ResponseEntity<User> getUserById(Long userId);
 
-	public List<User> getAllUsers();
+	public List<UserDTO> getAllUsers();
 
+	public ResponseEntity<HttpStatus> updateProfile(User user);
+
+	public ResponseEntity<HttpStatus> changePassword(User user);
 	
 	
 	

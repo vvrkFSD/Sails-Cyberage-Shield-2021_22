@@ -35,13 +35,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         
                   
         
-                  .antMatchers("/all/**")
+                  .antMatchers("api/all/**")
                   .permitAll()
                
-                 .antMatchers("/normal/**")
+                 .antMatchers("api/normal/**")
                   .hasAuthority("USER")
                   
-                  .antMatchers("/admin/**")
+                  .antMatchers("api/admin/**")
                   .hasAuthority("ADMIN")
                   
                   .anyRequest()

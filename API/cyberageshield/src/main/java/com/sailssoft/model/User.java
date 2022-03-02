@@ -12,7 +12,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.DynamicInsert;
 
 import lombok.AllArgsConstructor;
@@ -32,6 +31,7 @@ public class User {
             strategy = GenerationType.SEQUENCE,
             generator = "student_sequence"
     )
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="user_id")
 	private Long userId;
 	
