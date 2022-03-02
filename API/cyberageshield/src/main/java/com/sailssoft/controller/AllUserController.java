@@ -32,7 +32,7 @@ public class AllUserController {
 		boolean isValid = userService.isValidUser(email, password);
 		if(isValid){
 			session.setAttribute("email", email);
-			return new ResponseEntity<>(userService.findByEmail(email),HttpStatus.OK);
+			return new ResponseEntity<>(HttpStatus.OK);
 		}
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}

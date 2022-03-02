@@ -1,8 +1,11 @@
 package com.sailssoft.service.impl;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
+
+import javax.transaction.Transactional;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,9 +17,11 @@ import org.springframework.stereotype.Service;
 import com.sailssoft.dao.UserRepository;
 import com.sailssoft.dto.UserDTO;
 import com.sailssoft.model.User;
+import com.sailssoft.service.UserNotFoundException;
 import com.sailssoft.service.UserService;
 
 @Service
+@Transactional
 public class UserServiceImpl implements UserService{
 
 	@Autowired
@@ -31,8 +36,10 @@ public class UserServiceImpl implements UserService{
 		if(user == null){
 			return false;	
 		}
+		
 		String valid_password = user.getPassword();
-		return (password.equals(valid_password));
+		return passwordEncoder.matches(password, valid_password);
+		
 	}
 	
 	
@@ -145,5 +152,46 @@ public class UserServiceImpl implements UserService{
 		
 	}
 
+
+	@Override
+	public void updateResetPasswordToken(String token, String email) throws UserNotFoundException {
+		// TODO Auto-generated method stub
+		User user = userRepository.findByEmailId(email);
+        if (user != null) {
+           user.setResetPasswordToken(token);
+            userRepository.save(user);
+        } else {
+            throw new UserNotFoundException("Could not find any user with the email " + email);
+        }
+		
+	}
+
+
+	@Override
+	public User getByResetPasswordToken(String token) {
+		// TODO Auto-generated method stub
+		return userRepository.findByResetPasswordToken(token);
+	}
+
+
+	@Override
+	public void updatePassword(User user, String newpassword) {
+		// TODO Auto-generated method stub
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String encodedPassword = passwordEncoder.encode(newpassword);
+        user.setPassword(encodedPassword);
+         
+        user.setResetPasswordToken(null);
+        userRepository.save(user);
+		
+	}
+
+
 	
-}
+
+
+		
+	}
+
+	
+

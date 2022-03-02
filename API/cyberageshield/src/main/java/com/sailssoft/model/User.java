@@ -37,10 +37,13 @@ public class User {
 	
 	private String username;
 	
+	
 	private String password="Password@123";
 	
 	
 	private String role;
+	 @Column(name = "reset_password_token")
+	 private String resetPasswordToken;
 	
 	@Column(name="email_id")
 	private String emailId;
@@ -49,12 +52,29 @@ public class User {
 	
 	private Date dob;
 	
+	
+	
 
 
 
 
 	@OneToOne(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private UserTransaction userTransaction;
+
+
+
+
+
+
+
+	public void setResetPasswordToken(String resetPasswordToken) {
+		this.resetPasswordToken = resetPasswordToken;
+	}
+
+
+
+
+
 	
 	
 	
