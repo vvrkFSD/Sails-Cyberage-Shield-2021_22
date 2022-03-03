@@ -1,24 +1,49 @@
+.total-bg{
+    background-image: url("https://media.istockphoto.com/photos/gray-abstract-minimal-motion-backgrounds-loopable-elements-4k-picture-id1174989482?b=1&k=20&m=1174989482&s=170667a&w=0&h=ld7ukW9KTzUlJLc6c37C2xs5ESYP2wLyjxsEVCumn2s=");
+    background-size: cover;
+    height: 100vh;
+}
+.bg-top{
+    text-align: center;
+    background-color: rgb(9, 62, 97);
+    font-style: "Playfair Display SC";
+    color: #fff;
+
+}
+.top-heading{
+    font-size: 32px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+
 .card{
-    //margin-top: 10px;
     border: none;
     width: 500px;
     padding: 40px;
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 20%;
+    left: 58%;
     transform: translate(10%,50%);
-    background: hsla(205, 46%, 30%, 1);
-    background: linear-gradient(90deg, hsla(205, 46%, 30%, 1) 0%, hsla(260, 29%, 36%, 1) 100%);
+    background-image: url("https://media.gettyimages.com/photos/empty-dark-blue-with-black-vignette-studio-well-use-as-background-picture-id1175053786?b=1&k=20&m=1175053786&s=170667a&w=0&h=IaF0QdiiHMo0pC1RuIRUsOLcE3r9UYabacYP-0nAUiM=");
+    background-size: cover;    
     border-radius: 20px;
-}
-.card h1, h6, a{
+    font-family: "Playfair Display SC";
+    
     color: #fff;
-    font-family: "Roboto";
+
+}
+.card h6, a{
+    color: #fff;
+}
+.card h1{
+    font-weight: bold;
+    font-size: 32px;
 }
 label{
-    color: #fff;
     margin-top: 15px;
-    font-family: "Roboto";
+    font-size: 18px;
 }
 input{
     border-radius: 10px;
@@ -26,7 +51,7 @@ input{
 button{
     margin-top: 15px;
     width: 100px;
-    background-image: linear-gradient(90deg, #020024 0%, #090979 35%, #00d4ff 100%);
+    background-color: black;
     font-weight: bold;
     border-radius: 15px;
 }

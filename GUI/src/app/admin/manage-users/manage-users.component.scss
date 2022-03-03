@@ -1,4 +1,73 @@
-button{
-    margin: 10px;
+
+h2{
+    font-size: 20px;
+    text-align: center;
+    
+    font-family: "Playfair Display SC";
+
+}
+.tableBg{
+    background-color: #0a586b;
+    margin-left: 10px;
+    border-radius: 10px;
+    margin-top: 20px;
+    color: white;
+    
+    font-family: "Playfair Display SC";
+
+
+}
+
+td{
+    margin-left: 5%;
+    font-family: "Playfair Display SC";
+    padding: 0 15px;
+    
+}
+
+tr:hover{
+    background-color:rgb(197, 247, 247) ;
+}
+ thead{
+//     background-color: #75c5da;
+//     font-family: "Playfair Display SC";
+//     color: black;
+//     font-size: 18px;
+     padding: 0 15px;
+    
+ }
+
+input{
+    border-radius: 10px;
+    width: 75%;
+    margin-left: 10%;
+}
+label{
+    margin-left: 10%;    
+    font-family: "Playfair Display SC";
+    margin-top: 10px;
+
+}
+
+input.ng-invalid.ng-touched{
+    border: 1px solid red;
+}
+.adduser{
+    background-color: #0a586b;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-left: 10%;
+    font-family: "Playfair Display SC";
+    padding: 5px;
+    color: white;
+    
+}
+.saveBtn{
+    margin-top: 10px;
+    margin-bottom: 10px; 
+    margin-left: 30%; 
+    height: 40px; 
+    width: 20%;
+    background-color: rgb(166,170,175);
     border-radius: 10px;
 }

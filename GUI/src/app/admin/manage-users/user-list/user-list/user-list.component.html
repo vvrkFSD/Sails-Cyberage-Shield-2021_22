@@ -1,0 +1,49 @@
+<!-- <div class="row">
+    <div class="col-xs-10">
+        <app-edit-user></app-edit-user>
+        <ul class="list-group">
+            <a class="list-group-item" 
+            style="cursor: pointer;" 
+            *ngFor="let user of users">
+        {{user.mail}} ({{user.password}})
+        </a>
+
+        </ul>
+    </div>
+</div> -->
+
+<div class="row total-bg">
+    <app-admin-header></app-admin-header>
+    <div class="col-xs-8" style="margin-left: 22%;">
+        <app-edit-user></app-edit-user>
+    </div>
+    <div class="col-xs-5" style="margin-left: 25%;">
+        <hr>
+        <h1 class="text-center">Users-List</h1>
+        <!-- <ul class="list-group" style="margin-left: 10%;">
+            <a class="list-group-item" 
+               style="cursor: pointer"
+               *ngFor="let user of users ; let i = index" 
+               (click) = "onEditUser(i)">
+               {{user.mail}}      {{user.gender}}    {{user.dob}}</a>
+        </ul> --->
+        <table>
+                <tr>
+                    <th>MailId</th>
+                    <th>Gender</th>
+                    <th>Dob</th>
+                </tr>
+            
+                <tr style="cursor: pointer"
+                *ngFor="let user of users ; let i = index" 
+                (click) = "onEditUser(i)">
+            <td>{{user.mail}}</td>
+            <td>{{user.gender}}</td>
+            <td>{{user.dob}}</td>
+            </tr>
+            
+        </table>
+        <button class="btn btn-info" routerLink="/admin-dashboard" style="margin-left: 48%; margin-top: 30px;">Home</button>
+        
+    </div>
+</div>

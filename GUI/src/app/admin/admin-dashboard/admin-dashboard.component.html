@@ -1,0 +1,37 @@
+<app-admin-header></app-admin-header>
+<div class=" container-fluid bg-bottom">
+    <div class="row">
+        <div class="col-xs-3"  style="margin-left: 10%;">
+            <div class="admin-card text-center" (click)="onUser()">
+                <h1>USERS !!</h1>
+                <h3></h3>
+                <br>
+                <br>
+                <h4>click to manage Users !</h4>
+
+            </div>
+            
+        </div>
+        <div class="col-xs-3">
+            <div class="admin-card text-center" routerLink="/manage-topics">
+                <h1>TOPICS !!</h1>
+                <h3></h3>
+                <br>
+                <br>
+                <h4>click to manage Topics !</h4>
+
+            </div>
+            
+        </div>
+        <div class="col-xs-3">
+            <div class="admin-card text-center" routerLink="/user-status">
+                <h1>USER STATUS !!</h1>
+                <br/>
+                <br/>
+                <h4>click to see the status of the user !</h4>
+
+            </div>
+            
+        </div>
+    </div>
+</div>

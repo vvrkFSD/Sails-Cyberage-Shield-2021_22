@@ -1,0 +1,39 @@
+<div class="bg-total">
+<app-admin-header></app-admin-header>
+
+
+
+ <!-- <form (ngSubmit)="onSubmit(f)" #f="ngForm"> -->
+    <form  #f="ngForm">
+    <div class="row form-bg">
+        <h1 class="text-center">Upload A Topic</h1>
+        <br>
+        <div class="col-sm-8 form-group">
+            <input type="text" 
+            placeholder="Give the topic name here"
+            style="margin-left: 25%;"
+            class="form-control"
+            name="name"
+            ngModel 
+            required 
+            >
+        </div>
+        <br>
+        <div class="col-sm-8 form-group">
+            <input type="file"  
+            style="margin-left: 25%;"
+            class="form-control"
+            name="file"
+            ngModel 
+            required 
+            >
+        </div>
+        <div class="col-sm-12">
+        <button class="btn btn-info" routerLink="/admin-dashboard" style="margin-left: 25%;">Home</button>
+        <button class="btn btn-info" type="submit"  style="margin-left: 10%;"> Submit</button>
+        </div>
+
+        
+    </div>
+</form>
+</div>
